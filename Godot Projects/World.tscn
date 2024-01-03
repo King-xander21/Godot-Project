@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6fpiopqifwdj"]
+
+[ext_resource type="PackedScene" uid="uid://cbwe11n51nyvj" path="res://Player/Player.tscn" id="1_cgnkf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdwy6"]
+size = Vector2(1146.88, 406)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xul5"]
+size = Vector2(128.625, 236.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d2w3"]
+size = Vector2(128.625, 236.5)
+
+[node name="World" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 130.0
+offset_bottom = 52.0
+text = "You're in the world now"
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_cgnkf")]
+position = Vector2(211, 125)
+scale = Vector2(2.64, 2.4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(574.563, 436)
+shape = SubResource("RectangleShape2D_hdwy6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-62, 118.25)
+shape = SubResource("RectangleShape2D_7xul5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1212, 128)
+shape = SubResource("RectangleShape2D_7d2w3")
+
+[node name="Panel" type="Panel" parent="StaticBody2D/CollisionShape2D3"]
+offset_left = -1209.0
+offset_top = 109.0
+offset_right = -62.0
+offset_bottom = 498.0
